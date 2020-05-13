@@ -1,0 +1,57 @@
+name: orchis-themes
+adopt-info: orchis-gtk-themes
+architectures:
+  - all
+summary: Orchis GTK themes for GTK Snaps
+description: |
+  A snap that exports the Orchis GTK themes.
+
+base: core18
+grade: stable
+confinement: strict
+
+slots:
+  gtk-2-themes:
+    interface: content
+    source:
+      read:
+        - $SNAP/share/gtk2/Orchis
+        - $SNAP/share/gtk2/Orchis-compact
+        - $SNAP/share/gtk2/Orchis-dark
+        - $SNAP/share/gtk2/Orchis-dark-compact
+
+  gtk-3-themes:
+    interface: content
+    source:
+      read:
+        - $SNAP/share/themes/Orchis
+        - $SNAP/share/themes/Orchis-compact
+        - $SNAP/share/themes/Orchis-dark
+        - $SNAP/share/themes/Orchis-dark-compact
+        
+parts:
+  # Orchis gtk themes
+  orchis-gtk-themes:
+    after: [utils]
+    plugin: nil
+    source: https://github.com/vinceliuice/Orchis-theme.git
+    source-type: git 
+    override-build: |
+        snapcraftctl build
+        snapcraftctl set-version "$(git describe --tags 2>/dev/null || echo 1.0)"
+        mkdir -p $SNAPCRAFT_PART_INSTALL/share/themes
+        ./install.sh -d $SNAPCRAFT_PART_INSTALL/share/themes 
+        $SNAPCRAFT_STAGE/split-gtk-theme.sh $SNAPCRAFT_PART_INSTALL
+    stage:
+      - share/gtk2/*/gtk-2.0
+      - share/themes/*/gtk-3*
+      
+
+  utils:
+    plugin: dump
+    source: utils
+    prime:
+      - -*
+    build-packages:
+      - try: [gtk-update-icon-cache]
+      - else: [libgtk-3-bin]
