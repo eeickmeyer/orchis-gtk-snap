@@ -1,24 +1,18 @@
 <div align="center">
 <h1 align="center">
-  <img src="https://gitlab.com/uploads/-/system/project/avatar/18692209/ad0a03db14ec7e62dd54ac5821ae568240f4.png?width=88" alt="Project">
+  <img src="https://gitlab.com/uploads/-/system/project/avatar/18761542/e1e4dc0611627e93ae11227f17cc8a875d4f.jpg" alt="Project">
   <br />
   Orchis Themes for Snap
 </h1>
 </div>
 
-<p align="center"><b>These are the Orchis GTK themes for snaps.</b> Orchis is a Flat style theme for GNOME/GTK based desktop environments
+<p align="center"><b>These are the Orchis GTK themes for snaps.</b> Orchis is a Material Design theme for GNOME/GTK based desktop environments.
 
 This theme is based on the <a href="https://github.com/nana-4/materia-theme">Materia theme</a> of nana-4. 
 
-If you are using the Vimix icon theme along with the Orchis theme, you need to install vimix from the Snap Store in order to see the app icons in the store properly. Please run: 
-
-```
-sudo snap install vimix-themes
-```
 
 <b>Attributions:</b>
 This snap is packaged from vinceliuice's <a href="https://github.com/vinceliuice/Orchis-theme">Orchis-theme</a>. The Orchis theme is under a GPL3.0 licence.
-
 </p>
 
 
@@ -40,7 +34,7 @@ sudo snap connect [other snap]:icon-themes orchis-themes:icon-themes
 ```
 
 ## Icons
-If you are using the Vimix icon theme along with the Orchis theme, you need to install ```vimix-themes``` from the Snap Store in order to see the app icons in the store properly. Please run:
+If you are using the Vimix icon theme along with the Orchis theme, you need to install ```tela-icons``` from the Snap Store in order to see the app icons in the store properly. Please run:
 
 ```
 sudo snap install vimix-themes
