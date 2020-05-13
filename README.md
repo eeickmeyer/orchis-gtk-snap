@@ -34,8 +34,8 @@ sudo snap connect [other snap]:icon-themes orchis-themes:icon-themes
 ```
 
 ## Icons
-If you are using the Vimix icon theme along with the Orchis theme, you need to install ```tela-icons``` from the Snap Store in order to see the app icons in the store properly. Please run:
+If you are using the Tela icon theme along with the Orchis theme, you need to install ```tela-icons``` from the Snap Store in order to see the app icons in the store properly. Please run:
 
 ```
-sudo snap install vimix-themes
+sudo snap install tela-icons
 ```
