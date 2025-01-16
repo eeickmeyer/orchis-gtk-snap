@@ -23,11 +23,11 @@ This snap is packaged from vinceliuice's <a href="https://github.com/vinceliuice
 
 You can install the snap from the Snap Store оr by running:
 ```
-sudo snap install orchis-themes
+sudo snap install gtk-theme-orchis
 ```
 To connect the theme to an app run:
 ```
-sudo snap connect [other snap]:gtk-3-themes orchis-themes:gtk-3-themes 
+sudo snap connect [other snap]:gtk-3-themes gtk-theme-orchis:gtk-3-themes 
 ```
 
 ## Icons

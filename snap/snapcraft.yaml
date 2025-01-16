@@ -1,57 +1,33 @@
-name: orchis-themes
-adopt-info: orchis-gtk-themes
-architectures:
-  - all
-summary: Orchis GTK themes for GTK Snaps
+name: gtk-theme-orchis
+version: '2022-07-20'
+summary: Orchis theme
 description: |
-  A snap that exports the Orchis GTK themes.
+  Snap of the Orchis theme
 
-base: core18
+# We build against Ubuntu 22.04 packages, but use the "bare" base as
+# we don't want to force installation of a large base snap.
+build-base: core22
+base: bare
 grade: stable
 confinement: strict
 
 slots:
-  gtk-2-themes:
-    interface: content
-    source:
-      read:
-        - $SNAP/share/gtk2/Orchis
-        - $SNAP/share/gtk2/Orchis-compact
-        - $SNAP/share/gtk2/Orchis-dark
-        - $SNAP/share/gtk2/Orchis-dark-compact
-
   gtk-3-themes:
     interface: content
     source:
       read:
         - $SNAP/share/themes/Orchis
-        - $SNAP/share/themes/Orchis-compact
-        - $SNAP/share/themes/Orchis-dark
-        - $SNAP/share/themes/Orchis-dark-compact
-        
+        - $SNAP/share/themes/Orchis-Light
+        - $SNAP/share/themes/Orchis-Light-Compact
+        - $SNAP/share/themes/Orchis-Dark
+        - $SNAP/share/themes/Orchis-Dark-Compact
+        - $SNAP/share/themes/Orchis-Compact
+
 parts:
-  # Orchis gtk themes
-  orchis-gtk-themes:
-    after: [utils]
+  theme:
     plugin: nil
-    source: https://github.com/vinceliuice/Orchis-theme.git
-    source-type: git 
+    source: https://github.com/vinceliuice/Orchis-theme/archive/refs/tags/2022-07-20.tar.gz
     override-build: |
         snapcraftctl build
-        snapcraftctl set-version "$(git describe --tags 2>/dev/null || echo 1.0)"
-        mkdir -p $SNAPCRAFT_PART_INSTALL/share/themes
-        ./install.sh -d $SNAPCRAFT_PART_INSTALL/share/themes 
-        $SNAPCRAFT_STAGE/split-gtk-theme.sh $SNAPCRAFT_PART_INSTALL
-    stage:
-      - share/gtk2/*/gtk-2.0
-      - share/themes/*/gtk-3*
-      
-
-  utils:
-    plugin: dump
-    source: utils
-    prime:
-      - -*
-    build-packages:
-      - try: [gtk-update-icon-cache]
-      - else: [libgtk-3-bin]
+        mkdir -p $SNAPCRAFT_PART_INSTALL/share/themes/
+        $SNAPCRAFT_PART_SRC/install.sh -d $SNAPCRAFT_PART_INSTALL/share/themes/
