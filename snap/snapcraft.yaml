@@ -1,5 +1,5 @@
 name: gtk-theme-orchis
-version: '2022-07-20'
+version: '2024-11-03'
 summary: Orchis theme
 description: |
   Snap of the Orchis theme
@@ -26,7 +26,7 @@ slots:
 parts:
   theme:
     plugin: nil
-    source: https://github.com/vinceliuice/Orchis-theme/archive/refs/tags/2022-07-20.tar.gz
+    source: https://github.com/vinceliuice/Orchis-theme/archive/refs/tags/2024-11-03.tar.gz
     override-build: |
         snapcraftctl build
         mkdir -p $SNAPCRAFT_PART_INSTALL/share/themes/
