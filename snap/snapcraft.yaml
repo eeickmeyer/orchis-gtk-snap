@@ -4,9 +4,9 @@ summary: Orchis theme
 description: |
   Snap of the Orchis theme
 
-# We build against Ubuntu 22.04 packages, but use the "bare" base as
+# We build against Ubuntu 24.04 packages, but use the "bare" base as
 # we don't want to force installation of a large base snap.
-build-base: core22
+build-base: core24
 base: bare
 grade: stable
 confinement: strict
